@@ -3,6 +3,7 @@ package clztool
 import (
 	"crypto/rand"
 	"fmt"
+	"reflect"
 )
 
 func RandomString(n int, mode int) string {
@@ -27,9 +28,37 @@ func RandomString(n int, mode int) string {
 	return string(bytes)
 }
 
-func Includes(arr []interface{}, item interface{}) bool {
+func Includes(arr interface{}, item interface{}) bool {
+	var temp []interface{}
+	v := reflect.ValueOf(arr)
+	switch v.Type().String() {
+	case "[]string":
+		for _, v2 := range arr.([]string) {
+			temp = append(temp, v2)
+		}
+	case "[]int":
+		for _, v2 := range arr.([]int) {
+			temp = append(temp, v2)
+		}
+	case "[]uint":
+		for _, v2 := range arr.([]uint) {
+			temp = append(temp, v2)
+		}
+	case "[]int64":
+		for _, v2 := range arr.([]int64) {
+			temp = append(temp, v2)
+		}
+	case "[]uint64":
+		for _, v2 := range arr.([]uint64) {
+			temp = append(temp, v2)
+		}
+	case "[]interface{}":
+		for _, v2 := range arr.([]interface{}) {
+			temp = append(temp, v2)
+		}
+	}
 	itemt := fmt.Sprintf("%v", item)
-	for _, v := range arr {
+	for _, v := range temp {
 		if fmt.Sprintf("%v", v) == itemt {
 			return true
 		}
