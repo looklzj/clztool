@@ -66,7 +66,7 @@ func Includes(arr interface{}, item interface{}) bool {
 	return false
 }
 
-func Remove(arr interface{}, item interface{}) []interface{} {
+func Remove(arr interface{}, item interface{}) interface{} {
 	var temp []interface{}
 	v := reflect.ValueOf(arr)
 	switch v.Type().String() {
