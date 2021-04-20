@@ -98,7 +98,7 @@ func Remove(arr interface{}, item interface{}) interface{} {
 	itemt := fmt.Sprintf("%v", item)
 	for k, v := range temp {
 		if fmt.Sprintf("%v", v) == itemt {
-			return append(temp[:k], temp[k+1:])
+			return append(temp[:k], temp[k+1:]...)
 		}
 	}
 	return temp
