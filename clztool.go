@@ -77,36 +77,42 @@ func Remove(arr interface{}, item interface{}) interface{} {
 				return append(arr.([]string)[:k], arr.([]string)[k+1:]...)
 			}
 		}
+		return arr.([]string)
 	case "[]int":
 		for k, v := range arr.([]int) {
 			if fmt.Sprintf("%v", v) == itemt {
 				return append(arr.([]string)[:k], arr.([]string)[k+1:]...)
 			}
 		}
+		return arr.([]int)
 	case "[]uint":
 		for k, v := range arr.([]uint) {
 			if fmt.Sprintf("%v", v) == itemt {
 				return append(arr.([]string)[:k], arr.([]string)[k+1:]...)
 			}
 		}
+		return arr.([]uint)
 	case "[]int64":
 		for k, v := range arr.([]int64) {
 			if fmt.Sprintf("%v", v) == itemt {
 				return append(arr.([]string)[:k], arr.([]string)[k+1:]...)
 			}
 		}
+		return arr.([]int64)
 	case "[]uint64":
 		for k, v := range arr.([]uint64) {
 			if fmt.Sprintf("%v", v) == itemt {
 				return append(arr.([]string)[:k], arr.([]string)[k+1:]...)
 			}
 		}
+		return arr.([]uint64)
 	case "[]interface{}":
 		for k, v := range arr.([]interface{}) {
 			if fmt.Sprintf("%v", v) == itemt {
 				return append(arr.([]string)[:k], arr.([]string)[k+1:]...)
 			}
 		}
+		return arr.([]interface{})
 	}
 
 	return nil
